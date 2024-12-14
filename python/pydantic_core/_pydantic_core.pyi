@@ -18,6 +18,7 @@ __all__ = [
     'SchemaSerializer',
     'Url',
     'MultiHostUrl',
+    'Email',
     'SchemaError',
     'ValidationError',
     'PydanticCustomError',
@@ -491,6 +492,25 @@ def to_jsonable_python(
     Returns:
         The serialized Python object.
     """
+
+class Email(SupportsAllComparisons):
+    """
+    An email type, internal logic uses the [email-validator rust crate](https://docs.rs/email-validator/latest/email_validator/)
+    """
+    def __init__(self, email: str) -> None: ...
+    def __new__(cls, email: str) -> Self: ...
+    @property
+    def scheme(self) -> str: ...
+    @property
+    def local_part(self) -> str: ...
+    @property
+    def domain(self) -> str: ...
+    def unicode_string(self) -> str: ...
+    def __repr__(self) -> str: ...
+    def __str__(self) -> str: ...
+    def __deepcopy__(self, memo: dict) -> Self: ...
+    @classmethod
+    def build(cls, *, local_part: str, domain: str) -> Self: ...
 
 class Url(SupportsAllComparisons):
     """

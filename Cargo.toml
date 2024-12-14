@@ -47,6 +47,8 @@ num-bigint = "0.4.6"
 uuid = "1.11.0"
 jiter = { version = "0.8.2", features = ["python"] }
 hex = "0.4.3"
+emval = "0.1.5"
+
 
 [lib]
 name = "_pydantic_core"

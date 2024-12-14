@@ -3654,6 +3654,24 @@ def json_schema(
     return _dict_not_none(type='json', schema=schema, ref=ref, metadata=metadata, serialization=serialization)
 
 
+class EmailSchema(TypedDict, total=False):
+    type: Required[Literal['email']]
+    strict: bool
+    ref: str
+    metadata: Dict[str, Any]
+    serialization: SerSchema
+
+
+def email_schema(
+    *,
+    strict: bool | None = None,
+    ref: str | None = None,
+    metadata: Dict[str, Any] | None = None,
+    serialization: SerSchema | None = None,
+) -> EmailSchema:
+    return _dict_not_none(type='email', strict=strict, ref=ref, metadata=metadata, serialization=serialization)
+
+
 class UrlSchema(TypedDict, total=False):
     type: Required[Literal['url']]
     max_length: int

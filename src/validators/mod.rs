@@ -34,6 +34,7 @@ mod datetime;
 pub(crate) mod decimal;
 mod definitions;
 mod dict;
+mod email;
 mod enum_;
 mod float;
 mod frozenset;
@@ -607,6 +608,8 @@ pub fn build_validator(
         url::MultiHostUrlValidator,
         // uuid types
         uuid::UuidValidator,
+        // email types
+        email::EmailValidator,
         // recursive (self-referencing) models
         definitions::DefinitionRefValidator,
         definitions::DefinitionsValidatorBuilder,
@@ -755,11 +758,12 @@ pub enum CombinedValidator {
     CustomError(custom_error::CustomErrorValidator),
     // json data
     Json(json::JsonValidator),
-    // url types
     Url(url::UrlValidator),
     MultiHostUrl(url::MultiHostUrlValidator),
     // uuid types
     Uuid(uuid::UuidValidator),
+    // email types
+    Email(email::EmailValidator),
     // reference to definition, useful for recursive (self-referencing) models
     DefinitionRef(definitions::DefinitionRefValidator),
     // input dependent

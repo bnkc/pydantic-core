@@ -5,6 +5,7 @@ from typing import Any as _Any
 
 from ._pydantic_core import (
     ArgsKwargs,
+    Email,
     MultiHostUrl,
     PydanticCustomError,
     PydanticKnownError,
@@ -48,6 +49,7 @@ __all__ = [
     'SchemaSerializer',
     'Some',
     'Url',
+    'Email',
     'MultiHostUrl',
     'ArgsKwargs',
     'PydanticUndefined',
